@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Conditional Rendering">
+        <div class="slds-p-around_small">
+            <lightning-input type="checkbox" label="Check" checked={flag} onchange={handleChange}></lightning-input>
+            <br></br>
+            <template if:true={flag}>
+                <div class="slds-p-around_small">
+                    Congrats! you have learnt how conditional rendering works in LWC
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>
