@@ -1,0 +1,26 @@
+<template>
+    <lightning-card>
+
+        <!-- content with left justification goes here -->
+
+        <template if:false={flag} style="float: left;">
+                <div class="slds-is-fixed">
+                    <div style="float: left;">
+                        <img src={imageURL} style="height: 200px; " />
+                    </div>
+                </div>  
+        </template>
+        <!-- content justified right goes here -->
+        <template if:true={flag}>
+            <div class="slds-is-fixed">
+                <div style="float: right;">
+                    <img src={imageURL} style="height: 200px; " />
+                </div>
+            </div>  
+        </template>
+
+
+
+
+    </lightning-card>
+</template>

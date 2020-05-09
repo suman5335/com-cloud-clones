@@ -1,0 +1,20 @@
+<template>
+    <lightning-card>
+        <center>
+            <h3><b>{cardHeadline}</b></h3><br />
+            <template if:true={picFlip}>
+                <div class="slds-p-around_small" style="height: 400px; float: left;">
+                    <img src={imageURL} style="height: 200px; float: left; " />
+                </div>
+            </template>
+            <template if:false={picFlip}>
+                <div class="slds-p-around_small" style="height: 400px; float: right;">
+                    <img src={imageURL} style="height: 200px; float: right;"  />
+                </div>
+            </template>
+            <div>
+                <a href={webURL}>{descriptionURL}</a>
+            </div>
+        </center>
+    </lightning-card>
+</template>

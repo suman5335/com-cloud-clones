@@ -2,7 +2,7 @@
     <lightning-card title="Design Attribute Demo" icon-name="custom:custom19">
         <center>
             <h3>HI, <b>{strName}</b></h3><br />
-            <div if:true={showDetails} style="color: {backgroundColor}">
+            <div if:true={showDetails} >
                 <ul>
                     <li> Emp Name: <b>{empName}</b></li>
                     <li> Emp Department: <b>{empDepartment}</b></li>
@@ -11,12 +11,31 @@
                     <li> Emp Gender: <b>{empGender}</b></li>
                     <li> Background Color: <b>{backgroundColor}</b></li>
                 </ul>
+
                 <div class="imageURL">
-                    <img src={imageURL} />
+                    <img src={imageURL} style="height: 200px; " />
                 </div>
+
                 <div> 
                     <a href={webURL}>{descriptionURL}</a>
                 </div>
+
+
+                <lightning-input type="checkbox" label="Check" checked={flag} onchange={handleChange}></lightning-input>
+                <br></br>
+
+                <template if:true={flag}>
+                    <div class="slds-p-around_small">
+                        Congrats! you have learnt how conditional rendering works in LWC
+                    </div>
+                </template>
+
+                <template if:false={flag}>
+                    <div class="slds-p-around_small">
+                        Test worked!
+                    </div>
+                </template>
+
             </div>
         </center>
     </lightning-card>
