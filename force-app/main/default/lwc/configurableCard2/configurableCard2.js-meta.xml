@@ -10,10 +10,10 @@
     <targetConfigs>
         <targetConfig targets="lightningCommunity__Default">
             <property name="cardHeadline" type="String" default="Enter a Title Here" label="Card Title" />
-            <property name="picFlip" type="Boolean" default="false" label="Do you want to flip picture ?"  />
-            <property name="imageURL" type="String"  />
-            <property name="webURL" type="String"  />
-            <property name="descriptionURL" type="String" default="URL Label" />
+            <property name="picFlip" type="Boolean" default="false" label="Flip picture ?"  />
+            <property name="imageURL" type="String" label="Enter URL for image" />
+            <property name="webURL" type="String" label="Enter to hyperlink to a website" />
+            <property name="descriptionURL" type="String" default="URL Label" label="Title your link (what users will see)"/>
         </targetConfig>
     </targetConfigs>
 
