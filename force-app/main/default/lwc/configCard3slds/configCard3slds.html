@@ -1,0 +1,47 @@
+<template>
+    <lightning-card>
+
+        <!-- header text -->
+        <div class="slds-text-heading_small">
+            <div class="slds-text-align_left">
+                <b>{cardHeadline}</b>
+            </div>
+        </div>
+
+
+
+        <!-- left justification -->
+        <template if:true={picFlip}>
+            <div class="demo-only slds-size_3-of-4">
+                <div class="slds-media slds-media_center">
+                    <div class="slds-media__figure">
+                        <span class="slds-avatar slds-avatar_large">
+                            <img src={imageURL} />
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <p>{cardText}</p>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <!-- right justification -->
+        <template if:false={picFlip}>
+            <div class="demo-only slds-size_3-of-4">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <p>{cardText}</p>
+                    </div>
+                    <div class="slds-media__figure slds-media__figure_reverse">
+                        <span class="slds-avatar slds-avatar_large">
+                            <img src={imageURL} />
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href={webURL}>{descriptionURL}</a>
+            </div>
+        </template>
+    </lightning-card>
+</template>
