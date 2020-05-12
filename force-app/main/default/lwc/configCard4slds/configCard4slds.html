@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title={cardHeadline}>
+        <!-- Pic Left Text Right-->
+        <template if:false={picFlip}>
+            <div class="slds-grid">
+                <div class="slds-col slds-size_1-of-2">
+                    <img src={imageURL} />
+                </div>
+                <div class="slds-col slds-size_1-of-2 
+                            slds-text-heading_medium"
+                            >
+                    <span>{cardText}</span>
+                </div>
+            </div>
+        </template>
+        <!-- Pic Right Text Left -->
+        <template if:true={picFlip}>
+            <div class="slds-grid slds-grid_reverse">
+                <div class="slds-col slds-size_1-of-2">
+                    <img src={imageURL} />
+                </div>
+                <div class="slds-col slds-size_1-of-2 
+                            slds-text-heading_medium"
+                            >
+                    <span>{cardText}</span>
+                </div>
+            </div>
+        </template>
+        <center>
+            <a href={webURL}>{descriptionURL}</a>
+        </center>
+    </lightning-card>
+</template>

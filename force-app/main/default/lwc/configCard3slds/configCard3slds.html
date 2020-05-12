@@ -4,36 +4,46 @@
 
         <!-- pic right justification (working I think )-->
         <template if:false={picFlip}>
-            <div class="slds-size_3-of-4">
-                <div class="slds-media">
-                    <div class="slds-card__body slds-card__body_inner slds-size_1-of-2">
-                        <div class="slds-text-align_left">
-                            <p>{cardText}</p>
+
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="slds-col slds-media">
+                            <div class="slds-col slds-card__body slds-card__body_inner slds-size_1-of-2">
+                                <div class="slds-col slds-text-align_left">
+                                    <p>{cardText}</p>
+                                </div>
+                            </div>
+                            <div class="slds-col slds-card__body slds-media__figure slds-media__figure_reverse">
+                                <span class="slds-col slds-image slds-size_1-of-2">
+                                    <img src={imageURL} />
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="slds-media__figure slds-media__figure_reverse">
-                        <span class="slds-image slds-size_1-of-2">
-                            <img src={imageURL} />
-                        </span>
                     </div>
                 </div>
             </div>
         </template>
 
-
         <!-- pic left justification (not working)-->
 
         <template if:true={picFlip}>
-            <div class="slds-size_3-of-4">
-                <div class="slds-media">
-                    <div class="slds-media__figure">
-                        <span class="slds-image slds-size_1-of-2">
-                            <img src={imageURL} />
-                        </span>
-                    </div>
-                    <div class="slds-card__body slds-card__body_inner slds-size_1-of-2">
-                        <div class="slds-text-align_left">
-                            <p>{cardText}</p>
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+
+                    <div class="slds-col slds-size_1-of-2">
+                        <div class="slds-col slds-media">
+                            <div class="slds-col slds-card__body slds-media__figure">
+                                <span class="slds-col slds-image slds-size_1-of-2">
+                                    <img src={imageURL} />
+                                </span>
+                            </div>
+                            <div class="slds-col slds-card__body slds-card__body_inner slds-size_1-of-2">
+                                <div class="slds-col slds-text-align_left">
+                                    <p>{cardText}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
