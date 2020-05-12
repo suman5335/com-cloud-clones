@@ -14,7 +14,7 @@
                     <div class="slds-text-heading_small
                                 slds-card__body 
                                 slds-card__body_inner">
-                                {cardText}
+                        {cardText}
                     </div>
                 </div>
             </div>
@@ -33,16 +33,18 @@
                     <div class="slds-text-heading_small
                                 slds-card__body 
                                 slds-card__body_inner">
-                                {cardText}
+                        {cardText}
                     </div>
                 </div>
             </div>
         </template>
-        <center>
-            <a href={webURL} class="slds-card__body 
-                                    slds-card__body_inner">
-                                    {descriptionURL}
-            </a>
-        </center>
+        <div class="slds-card__body 
+                    slds-card__body_inner">
+            <center>
+                <a href={webURL}>
+                    {descriptionURL}
+                </a>
+            </center>
+        </div>
     </lightning-card>
 </template>
