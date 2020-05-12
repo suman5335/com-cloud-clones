@@ -5,6 +5,7 @@ export default class configCard4slds extends LightningElement {
     @track flag = false;
     @api picFlip = false;
     @api cardHeadline;
+    @api cardTitle;
     @api cardText;
     @api imageURL;
     @api webURL;

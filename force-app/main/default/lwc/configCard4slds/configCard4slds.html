@@ -1,5 +1,5 @@
 <template>
-    <lightning-card title={cardHeadline}>
+    <lightning-card title={cardTitle}>
         <!-- Pic Left Text Right-->
         <template if:false={picFlip}>
             <div class="slds-grid">
@@ -7,9 +7,15 @@
                     <img src={imageURL} />
                 </div>
                 <div class="slds-col slds-size_1-of-2 
-                            slds-text-heading_medium"
-                            >
-                    <span>{cardText}</span>
+                            slds-text-heading_medium
+                            slds-card__body
+                            slds-card__body_inner">
+                    <span><b>{cardHeadline}</b></span>
+                    <div class="slds-text-heading_small
+                                slds-card__body 
+                                slds-card__body_inner">
+                                {cardText}
+                    </div>
                 </div>
             </div>
         </template>
@@ -20,14 +26,23 @@
                     <img src={imageURL} />
                 </div>
                 <div class="slds-col slds-size_1-of-2 
-                            slds-text-heading_medium"
-                            >
-                    <span>{cardText}</span>
+                            slds-text-heading_medium
+                            slds-card__body
+                            slds-card__body_inner">
+                    <span><b>{cardHeadline}</b></span>
+                    <div class="slds-text-heading_small
+                                slds-card__body 
+                                slds-card__body_inner">
+                                {cardText}
+                    </div>
                 </div>
             </div>
         </template>
         <center>
-            <a href={webURL}>{descriptionURL}</a>
+            <a href={webURL} class="slds-card__body 
+                                    slds-card__body_inner">
+                                    {descriptionURL}
+            </a>
         </center>
     </lightning-card>
 </template>
