@@ -3,13 +3,17 @@
     <apiVersion>48.0</apiVersion>
     <isExposed>true</isExposed>
     <masterLabel>Configurable Card 4.0</masterLabel>
+    <description>A configurable card for Community Cloud and Lightning</description>
     <targets>
         <target>lightningCommunity__Page</target>
         <target>lightningCommunity__Default</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__HomePage</target>
     </targets>
     <!-- Configuring the design attributes -->
     <targetConfigs>
-        <targetConfig targets="lightningCommunity__Default">
+        <targetConfig targets="lightningCommunity__Default, lightning__AppPage, lightning__HomePage, lightning__RecordPage">
             <property name="cardTitle" type="String" default="Enter a Title (optional)" label="Card Title" />
             <property name="cardHeadline" type="String" default="Enter a Headline Here" label="Card Headline" />
             <property name="cardText" type="String" default="Enter a Description Here" label="Card Text" />
