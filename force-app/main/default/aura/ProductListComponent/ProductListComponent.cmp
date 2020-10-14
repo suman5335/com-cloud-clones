@@ -1,0 +1,36 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="recordList" type="Object"/>
+    <aura:attribute name="ProductId" type="String"/>
+    <lightning:overlayLibrary aura:id="overlayLib"/>
+    <div class="slds-grid slds-wrap">
+        <aura:iteration items="{!v.recordList}" var="item">
+            <div class= "slds-col slds-size_1-of-3 slds-p-around_small" style="background-color:skyblue ">                
+                  <lightning:card  title= "{!item.Product_Name__c}" iconName="standard:product_item">
+                    <p class="slds-p-horizontal_small">
+                        <div class="demo-only demo-only--sizing slds-grid slds-wrap" >                    
+                     <!-- <div class="slds-col slds-size_1-of-2" style="position: relative; max-width: 23%;">
+                        <img src="{!$Resource.logo}"/>
+                        </div>-->
+                        <div class="slds-col slds-size_1-of-2" >
+                          ID: {!item.Name} <br/>
+                          Name: {!item.Product_Name__c}<br/>
+                         <!-- Description: {!item.Description__c}<br/> -->
+                          Rating : {!item.Rating__c}<br/>
+                            Price(💲)  :{!item.Price__c} <br/>
+                          Category : {!item.Product_Categories__r.Name} 
+       <!--Any other details taht need to be shown should written here -->
+                       </div>
+                        </div>
+                    </p>
+                    <aura:set attribute="actions">
+                        <lightning:button label="View Details" 
+                                          value="View Details" 
+                                          variant="Neutral"
+                                          name="{!item.Id}"
+                                          onclick="{!c.showInfo}"/>                  
+                    </aura:set>
+               </lightning:card>
+            </div>        
+        </aura:iteration>        
+    </div>
+</aura:component>

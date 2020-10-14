@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,lightning:isUrlAddressable,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <lightning:navigation aura:id="navigation"/>
+    <aura:attribute name="ProductId" type="String"/>
+    <aura:attribute name="ProductName" type="String" />
+    <div class="slds-p-around_small">
+        <lightning:recordForm
+                              recordId="{!v.ProductId}"
+                              objectApiName="Product__c"
+                              layoutType="Full"
+                              columns="2"
+                              mode="readonly" />
+        <div class="slds-p-around_small slds-align_absolute-center">
+           <lightning:button label="Subscribe"  value ="Subscribe" variant="brand" onclick="{!c.doSubscribe}"
+                              />
+             <!-- <a href="../s/skyline-productpage2">
+                <button type="button">Subscribe</button> 
+            </a>-->
+        </div>
+    </div>
+</aura:component>

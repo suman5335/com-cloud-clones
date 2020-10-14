@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="intervalId" type="Integer" default="0"/>
+    
+    <div id="parentDIV" style="overflow:hidden">
+        <p style="position:relative;" id="tofloat">
+            <h1>
+            <b><span style="color:red">Whats New!!!!!!!!! </span>
+            </b>
+            </h1>
+        </p>
+    </div>
+</aura:component>

@@ -1,0 +1,25 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="CategoryListViewController">
+    <aura:attribute name="Category" Type="Categories__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <header class="slds-modal__header" style="background-color:#085071">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color:white" 
+            ><b>Top Categories</b></h2>
+        
+        <!--lightning help text for input field-->
+        <lightning:helptext content="Featured Content" class="customIcon"/>
+        <!-- use variant="label-hidden" for hide standard label-->
+    </header>
+    <div class="divCss">
+        <lightning:carousel disableAutoScroll="true">  
+            <aura:iteration items="{!v.Category}" var="can">
+                <div class="slds-col slds-size_1-of-3" style="background-color:#085071">
+                    <lightning:carouselImage
+                                             header = "{!can.CategoryDescription__c}">
+                    </lightning:carouselImage> 
+                </div>
+            </aura:iteration> 
+        </lightning:carousel>
+    </div>
+    
+</aura:component>

@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:registerEvent name="ProductEvent" type="c:ProductSearchEvent" />
+    <aura:attribute name="eventMessage" type="String"/> 
+    <aura:handler event="c:tree_Event" action="{!c.doSearch1}"/>
+    <div class="slds-grid">
+       <!-- <div class="slds-col slds-size_3-of-12">
+            <c:Tree_Filter/>
+        </div> -->
+    <div    >
+        <lightning:input
+                         name="inline-search-input"
+                         label="Product Search"
+                         type="search"
+                         value="{!v.eventMessage}"
+                         variant="label-hidden"
+                         aura:id="searchInput"
+                         onchange ="{!c.doSearch}"
+                         />
+        
+    </div>
+    </div>
+    
+</aura:component>

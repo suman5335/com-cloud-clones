@@ -1,0 +1,44 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <div>
+    <table width="100%">
+      <tr>
+          <h2>
+                <th border="4px" width="70%">FAQs(ViewAll)</th>
+              </h2>
+      </tr>      
+     </table>
+    </div>
+<div class="c-container">
+     <table width="100%">
+      <tr>
+                <td><b>Do all banks provide a routing number,full account number and account holder name?</b></td>
+      </tr>
+      <tr>
+       <td>Please use the search API to restrict the results to only those banks that return a routing number,full account
+		number or account holder name</td>  
+     </tr>   
+     </table>
+</div>   
+<div class="c-container">
+     <table width="100%">
+      <tr>
+                <td><b>How long does it take for me to complete integration with Yodlee IAV??</b></td>
+      </tr>
+      <tr>
+       <td>It can take 1 week with YodleeFastLink and 3 to 4 weeks without Yodlee FastLink</td>  
+     </tr>   
+     </table>
+</div>
+<div class="c-container">
+     <table width="100%">
+      <tr>
+                <td><b>Should i require Yodlee FastLink to have users link their accounts???</b></td>
+      </tr>
+      <tr>
+       <td>Yodlee fastLink is not required and login forms can be built separately.Building login forms could take more time so 
+		YodleeFastlink is recommended</td>  
+     </tr>   
+     </table>
+</div>
+        
+</aura:component>

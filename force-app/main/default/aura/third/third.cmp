@@ -1,0 +1,129 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="third_trail" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />  
+    <aura:attribute name="Fs" type="Featured_Stories__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>
+    <!-- this attributes are for top alerts -->
+    <aura:handler name="init" value="{!this}" action="{!c.goInit}" />     
+    <aura:attribute name="Ta" type="Top_Alerts__c[]"/>
+    <aura:attribute name="page1" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages1" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total1" type="integer" description="total records count store "/>
+    <!-- this attributes are for notifications -->
+    <aura:handler name="init" value="{!this}" action="{!c.toInit}" />     
+    <aura:attribute name="noty" type="Notification__c[]"/>
+    <aura:attribute name="page2" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages2" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total2" type="integer" description="total records count store "/>
+    <lightning:layout multipleRows="true">
+        <!--.........................this is for featured story.....................-->
+        <lightning:layoutItem padding="around-medium" size="4">
+            <header class="slds-modal__header">
+                <h2
+                    id="modal-heading-01"
+                    class="slds-text-heading_medium slds-hyphenate"
+                    ><b>Featured Stories</b></h2>
+                <label class="slds-form-element__label" style="margin-right: 0.5rem;"></label>
+                <!--lightning help text for input field-->
+                <lightning:helptext content="Featured Content" class="customIcon"/> 
+                <!-- use variant="label-hidden" for hide standard label-->
+            </header>
+            <div >
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer ">
+                    <tbody>
+                        <aura:iteration items="{!v.Fs}" var="featuredStory"> 
+                            <tr>
+                                <th scope="row" >
+                                    <div class="slds-cell-wrap" title="{!featuredStory.Stories__c}"><aura:unescapedHtml value="{!featuredStory.Stories__c}"></aura:unescapedHtml></div>
+                                </th>
+                            </tr>
+                        </aura:iteration>	
+                    </tbody>
+                </table>
+                <div class="slds-page-header" role="banner">
+                    <div class="slds-align_absolute-center">            
+                        <lightning:button iconName="utility:chevronleft" disabled="{!v.page == 1}" variant="brand" label="Previous " onclick="{! c.navigate }" />            
+                        <lightning:button  disabled="{!v.page == v.pages}" aura:id="previous" variant="brand" label="Next " iconName="utility:chevronright" iconPosition="right" onclick="{! c.navigate }" />
+                    </div>
+                    <div>
+                        <lightning:input  class="slds-hidden" aura:id="recordSize"  default='1'>
+                        </lightning:input>
+                    </div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <!--.........................this is for top alerts .....................-->
+        <lightning:layoutItem padding="around-medium" size="4">
+            <header class="slds-modal__header">
+                <h2
+                    id="modal-heading-01"
+                    class="slds-text-heading_medium slds-hyphenate"
+                    ><b>Top Alerts</b></h2>
+                <label class="slds-form-element__label" style="margin-right: 0.5rem;"></label>
+                <!--lightning help text for input field-->
+                <lightning:helptext content=" Top Alert Content" class="customIcon"/> 
+                <!-- use variant="label-hidden" for hide standard label-->
+            </header>
+            <div >
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer ">
+                    <tbody>
+                        <aura:iteration items="{!v.ta}" var="alert"> 
+                            <tr>
+                                <th scope="row" >
+                                    <div class="slds-cell-wrap" title="{!alert.Story__c}"><aura:unescapedHtml value="{!alert.Story__c}"></aura:unescapedHtml></div>
+                                </th>
+                            </tr>
+                        </aura:iteration>	
+                    </tbody>
+                </table>
+                <div class="slds-page-header" role="banner">
+                    <div class="slds-align_absolute-center">            
+                        <lightning:button iconName="utility:chevronleft" disabled="{!v.page1 == 1}" variant="brand" label="Previous " onclick="{! c.navigate1 }" />            
+                        <lightning:button  disabled="{!v.page1 == v.pages1}" aura:id="previous1" variant="brand" label="Next " iconName="utility:chevronright" iconPosition="right" onclick="{! c.navigate1 }" />
+                    </div>
+                    <div>
+                        <lightning:input  class="slds-hidden" aura:id="recordSize1"  default='1'>
+                        </lightning:input>
+                    </div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+        <!--.........................this is for notification .....................-->
+        <lightning:layoutItem padding="around-medium" size="4">
+            <header class="slds-modal__header">
+                <h2
+                    id="modal-heading-01"
+                    class="slds-text-heading_medium slds-hyphenate"
+                    ><b>Notification</b></h2>
+                <label class="slds-form-element__label" style="margin-right: 0.5rem;"></label>
+                <!--lightning help text for input field-->
+                <lightning:helptext content=" Notification Content" class="customIcon"/> 
+                <!-- use variant="label-hidden" for hide standard label-->
+            </header>
+            <div >
+                <table class="slds-table slds-table_bordered slds-table_cell-buffer ">
+                    <tbody>
+                        <aura:iteration items="{!v.noty}" var="N"> 
+                            <tr>
+                                <th scope="row" >
+                                    <div class="slds-cell-wrap" title="{!N.Notify__c}"><aura:unescapedHtml value="{!N.Notify__c}"></aura:unescapedHtml></div>
+                                </th>
+                            </tr>
+                        </aura:iteration>	
+                    </tbody>
+                </table>
+                <div class="slds-page-header" role="banner">
+                    <div class="slds-align_absolute-center">            
+                        <lightning:button iconName="utility:chevronleft" disabled="{!v.page2 == 1}" variant="brand" label="Previous " onclick="{! c.navigate2 }" />            
+                        <lightning:button  disabled="{!v.page2 == v.pages2}" aura:id="previous2" variant="brand" label="Next " iconName="utility:chevronright" iconPosition="right" onclick="{! c.navigate2 }" />
+                    </div>
+                    <div>
+                        <lightning:input  class="slds-hidden" aura:id="recordSize2"  default='1'>
+                        </lightning:input>
+                    </div>
+                </div>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

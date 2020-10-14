@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="PackageController">
+    <aura:attribute name="Package" Type="Package__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <!-- <div  class="slds-text-heading_small" style="color:black" > <b>Packages</b>
+       lightning help text for input field
+        <lightning:helptext content="Package Content" class="customIcon" />
+         use variant="label-hidden" for hide standard label
+    </div> -->
+    <div>
+        <lightning:carousel disableAutoScroll="true">  
+            <aura:iteration items="{!v.Package}" var="can">
+                <div class="slds-col slds-size_1-of-3" >
+                    <lightning:carouselImage header = "{!can.Package_Description__c}"  >
+                    </lightning:carouselImage> 
+                </div>
+            </aura:iteration> 
+        </lightning:carousel>
+    </div>
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" 
+                controller="filterController" >
+    <aura:attribute name="prodList" type="object"/>
+    <aura:iteration items="{!v.prodList}" var="item">
+        <lightning:card footer="Card Footer" title="Hello">
+            <p class="slds-p-horizontal_small">
+                Card Body (custom component)
+            </p>
+        </lightning:card>
+        
+    </aura:iteration>  
+</aura:component>

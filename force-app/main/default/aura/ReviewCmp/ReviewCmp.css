@@ -1,0 +1,20 @@
+.THIS#parentDIV{
+    border: 5px solid;
+    border-radius: 6px;
+    background: beige;
+    height: 1500px;
+    margin: 10px;
+    padding: 2px;
+}
+/** CSS **/
+.THIS.outerScroller {
+    /* fix innerScroller not scrollable */
+    border-radius: 1px;
+}
+.THIS.innerScroller {
+    /* make innerScroller rounded */
+    border-radius: 10px;
+}
+.THIS.scrollerSize {
+    height: 300px;
+}

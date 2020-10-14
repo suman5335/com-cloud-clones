@@ -1,0 +1,39 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="TagLine" type="String"/>
+    <aura:attribute name="message" type="String"/>
+    
+    <div class="slds-page-header">
+        <header class="slds-modal__header" style="background-color:skyblue ">
+            <h2
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate" style="color:white"
+                ><b>PRODUCT SEARCH </b></h2>
+            <!--lightning help text for input field-->
+            <lightning:helptext content="Search here about any product" class="customIcon"/>
+            <!-- use variant="label-hidden" for hide standard label-->
+        </header>
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" 
+                                          title="Rohde Corp - 80,000 Widgets">{!v.TagLine}</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">
+                            {!v.message}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

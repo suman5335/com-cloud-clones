@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:attribute name="items" type="Object" access="PRIVATE"/>
+    <b>
+    <lightning:tree items="{! v.items }" header="Available filters"/>
+    </b>
+</aura:component>

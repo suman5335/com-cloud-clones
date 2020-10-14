@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="ProductSearchServiceController" >
+   
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    
+    <aura:attribute name="items" type="Object" access="GLOBAL"/>
+    
+    <aura:attribute name="selected" type="String" />
+    
+    <!-- <aura:attribute name="cToP" type="String" /> -->
+    
+    <aura:registerEvent name="cmpEvent" type="c:Tree_Filter_Event"/>
+    
+    <div class="slds-grid"> 
+        <div class="slds-box">
+            <div class="slds-col slds-size_3-of-12">       
+                <lightning:tree items="{! v.items }" header="FILTER BAR" onselect="{! c.handleSelect }"/>
+            </div>
+            <div class="slds-box">
+                <lightning:input  name="selectedItem" value="{! v.selected }" label="Selected Filter"/>
+                
+               <!-- <lightning:button label="Apply Filter" variant="brand" onclick="{!c.Apply}"/> -->
+            </div>
+        </div>
+        <!--  <div >
+            <c:ProductExplorer/>
+        </div>-->
+    </div>
+</aura:component>

@@ -1,0 +1,80 @@
+<apex:page Controller="ProdSearchController">
+    <apex:form >
+    <html>
+        <head>
+            <style>
+                * {
+                box-sizing: border-box;
+                }
+                .grid {
+                float: left;
+                width: 25%;
+                padding: 10px;
+                height: 300px;
+                }
+                
+                .gridresults{
+                float: left;
+                width: 75%;
+                padding: 10px;
+                height: 450px;
+                }
+                
+                .gridtwo:after {
+                content: "";
+                display: table;
+                clear: both;
+                }
+                
+                .grid-container {
+                display: grid;
+                grid-template-columns: auto auto auto;
+                background-color: #FFDA8F;
+                padding: 10px;
+                }
+                .grid-item {
+                font-size: 14px;
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0.9);
+                }
+                
+                @media screen and (max-width: 600px) {
+                .grid ,.gridresults {
+                width: 100%;
+                }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="searchbar">
+                <apex:inputText value="{!searchKey}" label="Input"/>
+                <apex:inputText value="{!searchKey1}" label="Input"/>
+                <apex:commandButton value="search" action="{!search}" style="font-size: 25px;"/>
+                <apex:commandButton value="Clear search" action="{!clear}"/>
+            </div>
+            <div class="gridtwo">
+                <div class="grid">
+                    <h1>Filiters</h1>
+                </div>
+                <div class="gridresults">
+                    <apex:repeat value="{!result}" var="job">
+                        <div class="grid-container">
+                            <div class="grid-item">
+                                <a> {!job.Product_Name__c}</a>
+                                <!-- <p>
+<span> {!job.Company_Name__c} </span>
+<span> {!job.Job_Type__c} </span>
+<span>{!job.Salary__c} </span>
+</p> -->
+                            </div>
+                            <div class="grid-item">
+                                <span>{!job.Name}</span>
+                            </div>
+                        </div>                       
+                    </apex:repeat>
+                </div>
+            </div>
+        </body>
+    </html> 
+    </apex:form>
+</apex:page>

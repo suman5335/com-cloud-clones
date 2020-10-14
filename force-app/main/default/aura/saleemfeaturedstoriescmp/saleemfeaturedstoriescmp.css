@@ -1,0 +1,15 @@
+.THIS {
+  box-sizing: border-box;
+}
+.THIS .column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  height: 300px; 
+}
+
+.THIS .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}

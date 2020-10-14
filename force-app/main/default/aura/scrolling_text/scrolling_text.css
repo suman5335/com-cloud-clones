@@ -1,0 +1,8 @@
+.THIS#parentDIV{
+    border: 5px solid;
+    border-radius: 6px;
+    background: lightblue;
+    height: 50px;
+    margin: 2px;
+    padding: 2px;
+}

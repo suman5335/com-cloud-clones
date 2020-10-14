@@ -1,0 +1,121 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"  controller="final_search_bar_apex">
+    <!--Boolean attribute to indicate if modal is open or not 
+       default value is false as modal is closed when page is loaded 
+And all the attributes that will take keyword from serch box and diplay in table 
+    -->
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="searchResult" type="List" description="use for store and display account list return from server"/>
+    <aura:attribute name="searchKeyword" type="String" description="use for store user search input"/>
+    <aura:attribute name="Message" type="boolean" default="false" description="use for display no record found message"/>
+    <aura:attribute name="TotalNumberOfRecord" type="integer" default="0" description="use for display Number of records"/>
+    <lightning:spinner variant="brand" size="large" aura:id="Id_spinner" class="slds-hide" />
+    
+    <div class="slds-m-around_medium">
+        <!-- SEARCH INPUT AND SEARCH BUTTON--> 
+        <lightning:layout>
+         <lightning:layoutItem size="12" padding="around-medium">
+             <lightning:helptext
+        content="This is the product search bar ."/>   
+                <lightning:input value="{!v.searchKeyword}"
+                                 required="true"
+                                 placeholder="Search Here..."
+                                 aura:id="searchField"/>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+    <!--search button  -->
+    <div class="slds-align_absolute-center" style="height:5rem">
+        <lightning:button variant="brand"
+                          label="Search"
+                          title="Search"
+                          iconName="utility:search"
+                          onclick="{! c.openModel }" />
+        <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+        <aura:if isTrue="{!v.isModalOpen}">
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b> Product Search</b> </h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p> <!-- TOTAL RECORDS BADGES--> 
+                            <div class="slds-m-around_x-small">
+                                <lightning:badge label="{!v.TotalNumberOfRecord}" />
+                            </div>
+                            
+                            <!-- ERROR MESSAGE IF NOT RECORDS FOUND--> 
+                            <aura:if isTrue="{!v.Message}">
+                                <div class="slds-notify_container slds-is-relative">
+                                    <div class="slds-notify slds-notify_toast slds-theme_error" role="alert">
+                                        <div class="slds-notify__content">
+                                            <h2 class="slds-text-heading_small">No Records Found...</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aura:if>
+                            <!-- TABLE CONTENT--> 
+                            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                                <thead>
+                                    <tr class="slds-text-title_caps">
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="S.no">S.no</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title=" Name"> Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Project_Name__c">Product Name</div>
+                                        </th>
+                                        <th scope="col">
+                                            <div class="slds-truncate" title="Description__c">Description</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody> 
+                                    <!--### display all records of searchResult attribute by aura:iteration ###-->
+                                    <aura:iteration items="{!v.searchResult}" var="a" indexVar="count">
+                                        <tr>
+                                            <td>
+                                                <div class="slds-truncate">{!count + 1}</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">{!a.Name}</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">{!a.Project_Name__c}</div>
+                                            </td>
+                                            <td>
+                                                <div class="slds-truncate">{!a.Description__c}</div>
+                                            </td>
+                                        </tr>
+                                    </aura:iteration>
+                                </tbody>
+                            </table>
+                            
+                        </p>
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand"
+                                          label="OK"
+                                          title="OK"
+                                          onclick="{!c.submitDetails}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </div>
+</aura:component>

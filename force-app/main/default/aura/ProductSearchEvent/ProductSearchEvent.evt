@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="Product Component Event Example">
+    <aura:attribute name ="searchText" type="String"/>
+</aura:event>

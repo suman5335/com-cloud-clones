@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class= "slds-theme_shade slds-theme_alert-texture slds-box" >
+        <div class="slds-text-heading--large "  >
+            Product Name: <br/>
+            Description :
+        </div>
+        <div class="slds-text-heading--medium">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br/>
+            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, <br/>
+            when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+        <div class="slds-grid slds-box slds-text-heading_large slds-align_absolute-center"  style="height:5rem" >
+            Feature Description
+        </div>
+        <div >
+            <c:FeatureDescComponent/>
+        </div>
+        <div class=" slds-grid slds-box">
+            <div class="slds-col slds-box">
+                <c:FAQview/>
+                <c:AuthSpec/>
+            </div>
+            <div class="slds-col slds-box">
+                <c:AlertComponent/>
+            </div>
+            
+        </div>
+        <div class="slds-box" >
+            <c:SdkComponent/>
+        </div>
+        <div class="slds-box" >
+            <c:Recommendation/>
+        </div>
+    </div>
+</aura:component>

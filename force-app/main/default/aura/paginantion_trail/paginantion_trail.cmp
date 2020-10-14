@@ -1,0 +1,48 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                controller='PaginationController'
+                access="global" >
+    
+    <!-- Attribute Declration For Pagination -->
+    <aura:attribute name="ContactData" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="isSending" type="boolean" />
+    <!-- Attribute Declration For Pagination -->
+    <aura:attribute name="PaginationList" type="Featured_Stories__c"/>
+    <aura:attribute name="startPage" type="Integer" />
+    <aura:attribute name="endPage" type="Integer"/>
+    <aura:attribute name="totalRecords" type="Integer"/>
+    <aura:attribute name="pageSize" type="Integer" default="1"/>
+    <!-- Attribute Declration For Pagination End-->
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <!-- Spinner Start, show the loading screen while 
+   Client side controller(JS) is communicating with Server Side(APEX) controller -->
+        <aura:if isTrue="{!v.isSending}">
+            <div class="slds-spinner_container">
+                <div class="slds-spinner--brand slds-spinner slds-spinner--large" role="alert">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </aura:if>
+        <!-- Spinner End -->
+        <div class="slds-size_1-of-3">
+            <lightning:datatable data="{! v.PaginationList}" 
+                                 columns="{! v.columns }" 
+                                 keyField="id"
+                                 hideCheckboxColumn="true">
+            </lightning:datatable>
+            
+            
+            <br/>
+            <lightning:buttonGroup  class="slds-align_absolute-center">
+                <lightning:button  disabled="{!v.startPage == 0}"  
+                                  onclick="{!c.previous}" variant="brand"
+                                  iconName='utility:chevronleft'/>
+                &nbsp; &nbsp;
+                <lightning:button  disabled="{!v.endPage >= v.totalRecords}" 
+                                  onclick="{!c.next}" variant="brand"
+                                  iconName='utility:chevronright' iconPosition='right'/>
+            </lightning:buttonGroup>
+        </div>
+</aura:component>

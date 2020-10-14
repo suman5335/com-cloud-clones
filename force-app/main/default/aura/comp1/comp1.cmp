@@ -1,0 +1,49 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" 
+                controller="filterController">
+    <aura:attribute name="accounts" type="List" />
+    <aura:attribute name="key" type="String" /> 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <aura:attribute name="items" type="Object" access="GLOBAL"/>
+    
+    <aura:attribute name="selected" type="String" />
+    
+    <div class="slds-grid  slds-media   slds-theme_shade slds-theme_alert-texture"> 
+        <div class="slds-box "   >
+            <div class="slds-col slds-box" style="background-color:#4F6A92">       
+                <lightning:tree items="{! v.items }" header="FILTER BAR" onselect="{! c.handleSelect }"/>
+            </div>
+            <div class="slds-box slds-line-clamp " style="background-color:#4F6A92">
+                <lightning:input  name="selectedItem" value="{! v.selected }" label="Selected Filter"/>
+            </div>
+        </div>
+        <div class=" slds-box slds-col  slds-theme_shade slds-theme_alert-texture" style="background-color:#4F6A92">
+            <div class="slds-box slds-text-font_monospace">
+                <lightning:input type="text" name="searchKey"  value="{!v.selected}" aura:id="searchKey"  placeholder="Search here ..!" />
+            </div>
+            <div class="slds-align_absolute-center">
+                <lightning:button label="Search" iconName="standard:search" iconPosition="left"  variant="brand" onclick="{!c.searchKeyChange}" />
+            </div>
+            <div>
+                <aura:iteration var="acc" items="{!v.accounts}" >
+                    <div class="slds-box"> 
+                        <lightning:card class="slds-text-heading_Medium" title="{!acc.Product_Categories__r.Name}" iconName="utility:Products">
+                            
+                            <p class="slds-p-horizontal_medium  slds-list_horizontal ">
+                                Name :  {!acc.Product_Name__c}     <br/>
+                                Category:  {!acc.Product_Categories__r.Name}<br/>
+                                Rating: {!acc.Product_Rating__c}<br/>
+                                Price : {!acc.Price__c}<br/>
+                                Description: {!acc.Description__c} <br/> <br/>
+                            </p>
+                            <div> 
+                                <c:PackageComponent/>
+                            </div>
+                        </lightning:card>
+                    </div>
+                </aura:iteration>
+            </div>
+            
+        </div>
+    </div>
+</aura:component>

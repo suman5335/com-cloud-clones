@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="notificationapex" >
+    <aura:attribute name="reg" type="Notification__c[]"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:iteration var="r" items="{!v.reg}" >
+        <div class="row">
+  <div class="column" >
+     <header class="slds-modal__header">
+     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>Notification</b></h2>
+      </header>
+        <p>{!r.Notify__c}</p>
+            </div>
+        </div>
+    </aura:iteration>
+</aura:component>

@@ -1,0 +1,3 @@
+<aura:event type="APPLICATION" description="sendind filter comp">
+    <aura:attribute name="message" type="String"  access="GLOBAL"/>
+</aura:event>

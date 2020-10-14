@@ -1,0 +1,27 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global" controller="GetUserInfo">
+    <aura:attribute name="greeting" type="String" default="Hello" access="global" />
+    <aura:attribute name="subject" type="String" default="World" access="global" />
+    <aura:attribute name="userDetails" type="User" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    <h2> {!v.greeting} ,{!v.subject} </h2>
+    
+    <div class="card">
+        <img src="{!v.userDetails.FullPhotoUrl}" alt="{!v.userDetails.LastName}" style="width:100%"/>
+        <div class="container">
+            <h6>{!v.userDetails.Name}</h6>
+            <p >{!v.userDetails.UserRole.Name} </p>
+            <br/>
+            <br/>
+            
+            <h6> Preferred locale info </h6>
+            <p><b>Language:</b> {!$Locale.language}</p>
+            <p><b>Timezone: </b>  {!$Locale.timezone}</p>
+            <p><b>Number Format: </b> {!$Locale.numberFormat}</p>
+            <p><b>Currency Format:</b>  {!$Locale.currencyFormat}</p>
+        </div>
+    </div>
+    
+    
+</aura:component>

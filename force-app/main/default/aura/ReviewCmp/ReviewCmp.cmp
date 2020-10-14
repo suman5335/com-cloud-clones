@@ -1,0 +1,23 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="reviewapex">
+    <aura:handler name="init" value="{!this}" action="{!c.getStory}" />
+    <aura:attribute name="intervalId" type="Integer" default="0"/>
+    <aura:attribute name="story" type="List"></aura:attribute>
+    <aura:attribute name="values" type="Review__c"  />
+    <div id="parentDIV" style="overflow:hidden">           
+  	<p style="position:fixed;" id="tofloat"> 
+    <aura:iteration var="c" items="{!v.story}">
+    <aura:unescapedHtml value="{!c.Review_Description__c}"></aura:unescapedHtml>
+     <div> 
+     <table width="80%" border="1">    
+       <tr> 
+       <td> 
+     <lightning:formattedText  value="{!c.Review_Description__c}"/>
+       </td>       
+      </tr>   
+     </table>    
+     </div>     
+    </aura:iteration>
+ 	</p>
+    </div>
+</aura:component>

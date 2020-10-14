@@ -1,0 +1,44 @@
+<aura:component>
+<div class="row">
+  <div class="column" >
+     <header class="slds-modal__header">
+     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>Featured Stories</b></h2>
+      </header>
+    <p>Commerce Cloud solutions enable you to build differentiated, 
+        rich B2B and B2C commerce experiences to drive growth. 
+        Salesforce Billing payment apps streamline your collections process by 
+        making it easier to accept customer payment. Robotic processing automation 
+        (RPA) and chatbots from Service Cloud speed up self-service and securely 
+        automate repetitive tasks across systems. Lastly, Datorama solutions extend 
+        the power of marketing intelligence by enabling developers to create custom 
+        apps that marketers can discover and use on the Datorama platform.</p>
+  </div>
+  <div class="column" >
+    <header class="slds-modal__header">
+     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>Top Alerts</b></h2>
+      </header>
+    <p>Commerce Cloud solutions enable you to build differentiated, 
+        rich B2B and B2C commerce experiences to drive growth. 
+        Salesforce Billing payment apps streamline your collections process by making it 
+        easier to accept customer payment. Robotic processing automation (RPA) and 
+        chatbots from Service Cloud speed up self-service and securely automate 
+        repetitive tasks across systems. Lastly, Datorama solutions extend the 
+        power of marketing intelligence by enabling developers to create 
+        custom apps that marketers can discover and use on the Datorama platform.</p>
+  </div>
+  <div class="column">
+     <header class="slds-modal__header">
+     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>Notifications</b></h2>
+      </header>
+    <p>Commerce Cloud solutions enable you to build differentiated, 
+        rich B2B and B2C commerce experiences to drive growth. 
+        Salesforce Billing payment apps streamline your collections process by 
+        making it easier to accept customer payment. 
+        Robotic processing automation (RPA) and chatbots from Service Cloud speed up 
+        self-service and securely automate repetitive tasks across systems. Lastly, 
+        Datorama solutions extend the power of marketing intelligence by enabling 
+        developers to create custom apps that marketers can discover and use on the 
+        Datorama platform.</p>
+  </div>
+</div>        
+</aura:component>

@@ -1,0 +1,63 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" controller="SDKController">
+    
+    <!--aura init handler , call js "loadContactList" function on component load, and display contact data on table-->   
+    <aura:handler name="init" value="{!this}" action="{!c.loadContactList}"/> 
+    
+    <!--Declare Attribute for store Contact Records List-->  
+    <aura:attribute name="ListOfContact" Type="SDK__c[]"/> 
+    <div class="slds-grid slds-cell-wrap" >
+        <div class="row ">
+            <div class="column" >
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"><b>SDK's</b></h2>
+                </header>
+            </div>
+            <!--Use "slds-m-around- -xx-large" class to add standard Large padding to the component--> 
+            <div class="slds-m-around--xx-large">   
+                <button class="slds-button slds-button--brand" onclick="{!c.downloadCsv}">Download All</button> <br/><br/>
+                
+                <!--HTML tabel for display Contact Records-->
+                <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                    <thead>
+                        <tr class="slds-text-title--caps ">
+                            
+                            <th class="slds-is-sortable slds-text-title--caps" scope="col">
+                                <span class="slds-truncate" title="Name">SDK Name</span>  
+                            </th>
+                            <th class="slds-is-sortable slds-text-title--caps" scope="col">
+                                <span class="slds-truncate" title="SDK_Description__c">SDK Description</span>
+                            </th>
+                            <th class="slds-is-sortable slds-text-title--caps" scope="col">
+                                <span class="slds-truncate" title="SDK Download">SDK Download</span>
+                            </th>
+                        </tr>
+                        
+                    </thead>
+                    <!--table body start, 
+      Iterate contact list as a <tr>
+     -->
+                    <tbody >
+                        <aura:iteration items="{!v.ListOfContact}" var="con">  
+                            <tr>
+                                <th scope="row">
+                                    <div class="slds-truncate" title="{!con.Name}">{!con.Name}</div>
+                                </th>
+                                
+                                <th scope="row"  >
+                                    <div class="slds-truncate slds-cell-wrap" title="{!con.SDK_Description__c}">{!con.SDK_Description__c}</div>
+                                </th>
+                                <th scope="col">
+                                    <lightning:buttonIcon iconName="utility:download" variant="brand" alternativeText="download" title="download" />
+                                    
+                                </th>
+                            </tr>
+                            
+                        </aura:iteration>
+                        
+                    </tbody>
+                </table> 
+            </div>
+        </div>
+    </div>
+</aura:component>

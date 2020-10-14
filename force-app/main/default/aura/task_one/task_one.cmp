@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" >
+            <aura:attribute name="fields" type="String[]" default="['Name','Email','Company','Address','Hobby__c','Phone']" />
+            <aura:attribute name="recordId" type="String"/>
+            <lightning:recordForm objectApiName="Leads" fields="{!v.fields}" onsuccess="{!c.handleSuccess}" />
+</aura:component>

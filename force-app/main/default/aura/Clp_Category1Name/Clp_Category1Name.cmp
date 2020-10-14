@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="Clp_Category1NameController">
+    <aura:attribute name="Package1" Type="Package__c[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+            <div>
+            <h2
+                class="slds-text-align-left"
+                ><b>Category 1 Name</b></h2>
+            <label class="slds-form-element__label" style="margin-left: 0.5rem;"></label>
+        </div>
+    
+    <header class="slds-modal__header" style="background-color:#085071">
+        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color:white"> <b>Package</b></h2>
+        <label class="slds-form-element__label"></label>
+        <!--lightning help text for input field-->
+        <lightning:helptext content="Category Content" class="customIcon" />
+        <!-- use variant="label-hidden" for hide standard label-->
+    </header>
+    <div style="background-color:#085071">
+        <lightning:carousel disableAutoScroll="true">  
+            <aura:iteration items="{!v.Package1}" var="pack1">
+                
+                <div class="slds-col slds-size_1-of-3" >
+                    
+                    <lightning:carouselImage
+                                             header = "{!pack1.Package_Description__c}" style="background-color:#085071">
+                    </lightning:carouselImage> 
+                </div>
+            </aura:iteration> 
+        </lightning:carousel>
+    </div>
+</aura:component>

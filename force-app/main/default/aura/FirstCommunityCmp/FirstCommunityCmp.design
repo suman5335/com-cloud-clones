@@ -1,0 +1,4 @@
+<design:component label="First Community Cmp">
+    <design:attribute name="greeting" label="Greeting" />
+    <design:attribute name="subject" label="Subject" />
+</design:component>

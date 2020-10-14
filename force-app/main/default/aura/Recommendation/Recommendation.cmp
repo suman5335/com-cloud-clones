@@ -1,0 +1,28 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global"
+                controller="RecoController">
+  <aura:attribute name="Recommendation" Type="Recommendation__c[]" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+   <header class="slds-modal__header" >
+ <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"> <b>Recommendations and Companion Products</b></h2>
+ </header>
+   <!-- <header class="slds-modal__header" style="background-color:#085071">
+ <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color:white" > <b>Recommendation</b></h2>
+ <label class="slds-form-element__label"></label>
+ lightning help text for input field
+ <lightning:helptext content="Recommendation Content" class="customIcon" />
+  use variant="label-hidden" for hide standard label
+ </header> -->
+    <div>
+      <lightning:carousel disableAutoScroll="true">  
+        <aura:iteration items="{!v.Recommendation}" var="can">
+           
+          <div class="slds-col slds-size_1-of-3" >
+              
+              <lightning:carouselImage
+               header = "{!can.Recommendation_Description__c}">
+              </lightning:carouselImage> 
+              </div>
+        </aura:iteration> 
+      </lightning:carousel>
+            </div>
+</aura:component>

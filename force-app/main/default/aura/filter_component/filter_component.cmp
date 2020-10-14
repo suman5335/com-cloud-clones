@@ -1,0 +1,72 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="filter_Cmp">
+    
+    <aura:attribute
+                    name="mode"
+                    type="string"
+                    access="global"
+                    default="select" />
+    
+    <aura:attribute
+                    name="beers"      
+                    access="private"      
+                    type="Object[]"     
+                    description="hierarchical data to display" />
+    
+    <aura:attribute      
+                    name="selectedBeerId"      
+                    access="public"      
+                    type="Id"      
+                    default=""      
+                    description="User selection"/>
+    
+    <aura:attribute      
+                    name="labelPrefix"      
+                    access="public"      
+                    type="String"      
+                    default="Friends with "     
+                    description="Text prefix for select options"/>
+    
+    <aura:handler   
+                  name="change"        
+                  value="{!v.selectedBeerId}"        
+                  action="{!c.onBeerChange}" />
+    
+    <aura:handler        
+                  name="init"        
+                  value="{!this}"        
+                  action="{!c.doInit}" />
+    
+    <!-- fire event when a selection is made 
+    <aura:registerEvent      
+                        name="onBeerSelected"      
+                        type="c:FWB_BeerSelected"/> -->
+    
+    <aura:if isTrue="{!v.mode == 'select'}">
+        <div>
+            <lightning:select    
+                              name="beerId"          
+                              label="Select Beer"     
+                              variant="label-hidden"     
+                              value="{!v.selectedBeerId}">
+                
+                <option value="">Select Beer</option>
+                <aura:iteration items="{!v.beers}" var="thisBeerGroup">
+                    <optgroup label="{!thisBeerGroup.label}">
+                        <aura:iteration items="{!thisBeerGroup.items}"              
+                                        var="thisBeer">
+                            
+                            <option value="{!thisBeer.name}">
+                                {!v.labelPrefix}{!thisBeer.label}
+                            </option>
+                        </aura:iteration>
+                    </optgroup>
+                </aura:iteration>
+            </lightning:select>
+        </div>
+        <aura:set attribute="else">
+            <lightning:tree items="{!v.beers}"                              
+                            header=""                              
+                            onselect="{!c.onTreeSelect}"/>
+        </aura:set>
+    </aura:if>
+</aura:component>

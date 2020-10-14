@@ -1,0 +1,40 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <div class="c-container">
+        <table width="100%">
+            <tr>
+                <th border="2px" width="30%">API Spec</th>
+                <th border="2px" width="20%">API Spec</th>
+                <th border="2px" width="20%">API Spec</th>
+                <th border="2px" width="30%">API Spec</th>
+            </tr>
+            <tr>
+                <td><b style="font-size:20px;">auth</b></td> <td></td>
+                <td
+                    ><p style="color:gray">Show/Hide&nbsp;&nbsp;|&nbsp;&nbsp;List Operations&nbsp;&nbsp;|&nbsp;&nbsp;Expand
+                    Operations</p></td
+                    >
+                <td><p style="color:gray">Raw</p></td>
+            </tr>
+            
+            <hr style="width:500%"></hr> <tr></tr>
+            <tr>
+                <td><b style="font-size:20px;">Configs</b></td> <td></td>
+                <td
+                    ><p style="color:gray">Show/Hide&nbsp;&nbsp;|&nbsp;&nbsp;List Operations&nbsp;&nbsp;|&nbsp;&nbsp;Expand
+                    Operations</p></td
+                    >
+                <td><p style="color:gray">Raw</p></td>
+            </tr>
+            
+            <hr style="width:500%"></hr>
+            <tr>
+                <td><b style="font-size:20px;">User</b></td> <td></td>
+                <td
+                    ><p style="color:gray">Show/Hide&nbsp;&nbsp;|&nbsp;&nbsp;List Operations&nbsp;&nbsp;|&nbsp;&nbsp;Expand
+                    Operations</p></td
+                    >
+                <td><p style="color:gray">Raw</p></td>
+            </tr>
+        </table>
+    </div>
+</aura:component>

@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,lightning:isUrlAddressable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+                access="global"
+                Controller="ProductSearchServiceController">
+    
+    <aura:handler name="ProductEvent" event ="c:ProductSearchEvent" action= "{!c.handleCompEvent}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.handleCompEvent}"/>
+    <aura:attribute name="ProductList" type="Object"/>
+    <div>
+        <c:Tree_Filter/>
+    </div>
+    <div>
+        <c:ProductSearchHeader />
+    </div> 
+    <div>
+        <c:ProductSearch/>
+        <c:ProductListComponent recordList = "{!v.ProductList}" />
+    </div>
+    <div>
+        
+    </div>
+</aura:component>

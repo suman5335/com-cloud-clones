@@ -1,0 +1,31 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="Apex2">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />    
+    <aura:attribute name="Accounts" type="Top_Alerts__c[]"/>
+    <aura:attribute name="page" type="integer" description="using for store page Number"/>
+    <aura:attribute name="pages" type="integer" description="using for store All Pages page Number"/>
+    <aura:attribute name="total" type="integer" description="total records count store "/>   
+    <div>
+          <table class="slds-table slds-table_bordered slds-table_cell-buffer ">
+            <tbody>
+                <aura:iteration items="{!v.Accounts}" var="account"> 
+                    <tr>
+                        <th scope="row" data-label="Opportunity Name">
+                            <div class="slds-cell-wrap" title="{!account.Story__c }"><aura:unescapedHtml value="{!account.Story__c }"></aura:unescapedHtml></div>
+                         </th>
+                    </tr>
+                </aura:iteration>	
+            </tbody>
+        </table>
+         <div class="slds-page-header" role="banner">
+            <div class="slds-align_absolute-center">            
+                <lightning:button iconName="utility:chevronleft" disabled="{!v.page == 1}" variant="brand" label="Previous " onclick="{! c.navigate }" />            
+                <lightning:button  disabled="{!v.page == v.pages}" aura:id="previousPage" variant="brand" label="Next " iconName="utility:chevronright" iconPosition="right" onclick="{! c.navigate }" />
+            </div>
+             <div>
+             <lightning:input  class="slds-hidden" aura:id="recordSize"  default='1'>
+             </lightning:input>
+        </div>
+        </div>
+    </div>
+    
+</aura:component>
